@@ -1,0 +1,22 @@
+import datetime
+
+input_format = '%m/%d'
+output_format = '%b_%d'
+url = "https://en.wikipedia.org/wiki/{}"
+
+while True:
+	input_date = input("Enter a date (MM/DD) or QUIT to exit: ")
+	if input_date.upper() == 'QUIT':
+		break
+
+	try:
+		date = datetime.datetime.strptime(input_date, input_format)
+		output = url.format(date.strftime(output_format))
+		print(output)
+	except ValueError:
+		print('Invalid date. Try again')
+
+
+
+
+
